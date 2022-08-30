@@ -9,6 +9,7 @@ const router = new Router(); // 路由对象
  */
 router.get("/test", async (ctx) => {
   ctx.status = 200;
+  // ctx.success("users test");
   ctx.body = { msg: "users test" };
 });
 

@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ES2020",
     "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "ESNext",
     "sourceMap": false,
     "esModuleInterop": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
+  "include": ["src/**/*", "src/app.ts", "bin/**/*"],
   "exclude": ["node_modules"]
 }

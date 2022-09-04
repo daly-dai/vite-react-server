@@ -3,7 +3,7 @@ import cors from "koa2-cors";
 import koaBody from "koa-bodyparser";
 import passport from "koa-passport";
 import router from './controllers/index'
-import { error, success } from '@/middleware/response'
+import { error, routerResponse } from '@/middleware/response'
 import corsConfig from "@/middleware/cors";
 import helmet from 'koa-helmet'
 import { logInfo } from "@/middleware/logger";
@@ -21,13 +21,13 @@ app.use(error)  // 统一异常处理管理
 app.use(koaBody());
 app.use(helmet())  // 网络安全中间件
 
-app.use(success)
+app.use(routerResponse())
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
-// passwortFun(passport)
+passwortFun(passport)
 // 配置路由
 app.use(router.routes()).use(router.allowedMethods());
 

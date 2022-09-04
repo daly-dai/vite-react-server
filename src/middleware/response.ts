@@ -16,6 +16,28 @@ const success = async (ctx, next) => {
 }
 
 /**
+ * @desc
+ * @param option 
+ * @returns 
+ */
+export function routerResponse(option: any = {}) {
+  return async function (ctx, next) {
+    ctx.success = function (data) {
+      ctx.type = option.type || "json";
+      ctx.body = {
+        code: option?.successCode || 200,
+        msg: option.successMsg || "success",
+        data: data,
+      };
+
+      ctx.response.status = 200;
+    };
+
+    await next();
+  };
+}
+
+/**
  *
  * 统一异常处理
  * @param {*} ctx

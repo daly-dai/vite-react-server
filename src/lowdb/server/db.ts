@@ -14,12 +14,4 @@ const adapter = new JSONFile<Data>(file)
 
 const db = new Low<Data>(adapter)
 
-await db.read()
-
-
-db.data ||= { User: [] }
-
-await db.write()
-
-
 export default db

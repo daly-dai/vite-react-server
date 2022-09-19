@@ -5,8 +5,8 @@
   "main": "./src/app.ts",
   "type": "module",
   "scripts": {
-    "start": "esno ./src/app",
-    "dev": "nodemon --watch src/**/*.ts --exec \"ts-node\" ./src/app.ts"
+    "start": "esno src/app.ts",
+    "dev": "nodemon --watch src/**/*.ts --exec \"esno\" src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -35,8 +35,11 @@
     "koa-jwt": "^4.0.3",
     "koa-passport": "^5.0.0",
     "koa-router": "^12.0.0",
+    "koa-session": "^6.2.0",
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
+    "lodash": "^4.17.21",
+    "lodash-id": "^0.14.1",
     "log4js": "^6.6.1",
     "lowdb": "^3.0.0",
     "passport-jwt": "^4.0.0",
@@ -51,7 +54,9 @@
     "@types/koa-helmet": "^6.0.4",
     "@types/koa-passport": "^4.0.3",
     "@types/koa-router": "^7.4.4",
+    "@types/koa-session": "^5.10.6",
     "@types/koa2-cors": "^2.0.2",
+    "@types/lodash": "^4.14.184",
     "@types/lowdb": "^1.0.11",
     "@types/node": "^18.7.13",
     "@types/passport-jwt": "^3.0.6",

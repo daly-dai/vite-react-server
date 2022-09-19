@@ -1,16 +1,21 @@
 import koa from "koa";
 import cors from "koa2-cors";
 import koaBody from "koa-bodyparser";
-import passport from "koa-passport";
+import passport from 'koa-passport';
 import router from './controllers/index'
 import { error, routerResponse } from '@/middleware/response'
 import corsConfig from "@/middleware/cors";
 import helmet from 'koa-helmet'
 import { logInfo } from "@/middleware/logger";
 import passwortFun from '@/middleware/passport'
+import session from 'koa-session'
+
 // 实例化koa
 const app = new koa();
 
+
+app.keys = ['secret']
+app.use(session({}, app))
 
 app.use(logInfo)  // 日志管理
 

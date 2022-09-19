@@ -25,8 +25,8 @@ export function routerResponse(option: any = {}) {
     ctx.success = function (data) {
       ctx.type = option.type || "json";
       ctx.body = {
-        code: option?.successCode || 200,
-        msg: option.successMsg || "success",
+        code: data?.successCode || 200,
+        msg: data?.successMsg || "success",
         data: data,
       };
 

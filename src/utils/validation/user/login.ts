@@ -8,7 +8,7 @@ interface ErrorObj {
   // email: string
 }
 
-module.exports = function validateLoginInput(data) {
+export default function validateLoginInput(data) {
   let error: Partial<ErrorObj> = {};
 
   data.name = !isEmpty(data.name) ? data.name : "";

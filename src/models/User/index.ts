@@ -3,5 +3,5 @@ export interface User {
   name: String;
   password: string;
   email: string;
-  date: Date;
+  date: number | string;
 }

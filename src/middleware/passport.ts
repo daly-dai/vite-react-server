@@ -1,5 +1,4 @@
-import { Strategy as JwtStrategy } from "passport-jwt"
-import { ExtractJwt } from "passport-jwt";
+import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import db from "@/lowdb/server/db";
 import { SECURITY } from '@/config/config'
 
@@ -16,7 +15,7 @@ const passwortFun = (passport) => {
 
       const { User } = db.data;
 
-      const user = await User.find({ id: jwt_payload.id })
+      const user = db.data.User.find(item => item.id === jwt_payload.id)
 
       return done(null, user || false);
     })
